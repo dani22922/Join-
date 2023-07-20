@@ -85,7 +85,7 @@ const demoUser = {
       boardList: "To-Do",
       boardlistPosition: 0,
       title: "Visit developer's portfolio website",
-      description: "Surf to: www.strandco.de",
+      description: "Surf to: ",
       epic: "Contact new people",
       assign_to_contacts: ['1682598272232', '1682598272234'],
       date: "2023-05-30",
