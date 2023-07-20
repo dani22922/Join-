@@ -1,0 +1,265 @@
+main {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+.summary-mobile-headline {
+  width: 100%;
+}
+
+.add-task-wrapper form {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  flex-wrap: wrap;
+  width: 100%;
+  padding-bottom: 150px;
+}
+
+.add-task-wrapper h3 {
+  font-size: 2rem;
+  margin-block-start: 10px;
+  margin-block-end: 10px;
+  width: 100%;
+}
+
+.add-task-form-separator-left,
+.add-task-form-separator-right {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  max-width: 500px;
+  position: relative;
+}
+
+.add-task-form-item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  width: 100%;
+  margin-bottom: 25px;
+}
+
+.add-task-form-item-buttons {
+  display: none;
+  justify-content: flex-end;
+  align-items: flex-start;
+  gap: 20px;
+  margin: 25px 0;
+  margin-top: 100px;
+  width: 100%;
+  padding-right: 100px;
+}
+
+.add-task-wrapper input,
+.add-task-wrapper textarea,
+.add-task-wrapper select,
+.prio-button-wrapper button {
+  width: 100%;
+  border-radius: 10px;
+  border: 1px solid #D1D1D1;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: white;
+  padding: 10px;
+  font-family: "Inter";
+}
+
+.add-task-wrapper textarea {
+  height: 134px;
+}
+
+.add-task-wrapper textarea::placeholder {
+  font-family: "Inter";
+}
+
+
+
+.prio-button-wrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  gap: 10px;
+}
+
+
+.prio-button-wrapper button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: all 125ms ease-in-out;
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
+}
+
+.prio-button-wrapper button:hover {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  cursor: pointer;
+  box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.3);
+  transform: translateY(-2px);
+  transition: all 125ms ease-in-out;
+  color: white;
+}
+
+.prio-button-urgent:hover {
+  background-color: var(--urgent);
+  border: none;
+}
+
+.prio-button-urgent:hover img {
+  filter: brightness(0%) saturate(0%) invert(100%);
+  transition: all 125ms ease-in-out;
+}
+
+.prio-button-medium:hover {
+  background-color: var(--medium);
+  border: none;
+}
+
+.prio-button-medium:hover img {
+  filter: brightness(0%) saturate(0%) invert(100%);
+  transition: all 125ms ease-in-out;
+}
+
+.prio-button-low:hover {
+  background-color: var(--low);
+  border: none;
+}
+
+.prio-button-low:hover img {
+  filter: brightness(0%) saturate(0%) invert(100%);
+  transition: all 125ms ease-in-out;
+}
+
+.task-create-img {
+  opacity: 0;
+  position: fixed;
+  bottom: -50%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Dropdown menu */
+
+.dropdown-menu {
+  width: 100%;
+  border-radius: 10px;
+  border: 1px solid #D1D1D1;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: white;
+  padding: 10px 10px 5px 10px;
+  font-size: 1rem;
+  transform-origin: top;
+  position: relative;
+}
+
+
+.dropdown-header {
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+  padding-bottom: 5px;
+}
+
+.dropdown-header input {
+  border: none;
+  box-shadow: none;
+}
+
+.dropdown-header input {
+  border: none;
+  box-shadow: none;
+  font-size: 1rem;
+  padding: 0;
+  cursor: pointer;
+}
+
+.dropdown-header input:focus-visible {
+  outline: none;
+}
+
+.dropdown-body {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  border: 1px solid #D1D1D1;
+  border-top: unset;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
+  /* gap: 10px; */
+  position: absolute;
+  top: 33px;
+  left: -0.3px;
+  right: -1px;
+  padding: 5px;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.dropdown-body .option {
+  padding: 5px;
+  cursor: pointer;
+}
+
+.dropdown-body .option:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.z-3 {
+  z-index: 3;
+}
+
+.z-4 {
+  z-index: 4;
+}
+
+.z-5 {
+  z-index: 5;
+}
+
+.assignedContactActive {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.assignedContactActive img {
+  height: 20px;
+}
+
+.d-none {
+  display: none;
+}
+
+
+@media screen and (min-width: 910px) {
+  main {
+    padding: 50px;
+  }
+
+  .summary-mobile-headline {
+    display: none;
+  }
+
+  .add-task-wrapper h3 {
+    font-size: 3rem;
+    margin-block-start: 10px;
+    margin-block-end: 10px;
+    width: 100%;
+  }
+
+  .add-task-form-item-buttons {
+    display: flex;
+  }
+
+  #mobileHeaderAddTasksToUserButton {
+    display: flex !important;
+  }
+
+}

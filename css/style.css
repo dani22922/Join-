@@ -1,0 +1,455 @@
+/* #################### Globale CSS variables ################### */
+
+/* LEGAL Download der Schriftarten einbinden */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  --lightblue: #29ABE2;
+  --darkblue: #2A3647;
+  --urgent: #ff3d00;
+  --medium: #ffa800;
+  --low: #7ae229;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  margin: 0;
+  transition: all 125ms ease-in-out;
+}
+
+main {
+  background-color: #F5F5F5;
+  height: calc(100vh - 89px);
+  margin-top: 89px;
+  margin-left: 232px;
+  display: flex;
+}
+
+.fs-24 {
+  font-size: 24px;
+}
+
+/* Contacts avatar bg-color */
+
+.bg-darkblue {
+  background-color: #2A3647;
+}
+
+.bg-lightgray {
+  background-color: #F5F5F5;
+}
+
+.bg-antiquewhite {
+  background-color: #f5f5f5;
+}
+
+.bg-orange {
+  background-color: #FF7A00;
+}
+
+.bg-purple {
+  background-color: #9327FF;
+}
+
+.bg-turquoise {
+  background-color: #29ABE2;
+}
+
+.bg-pink {
+  background-color: #FC71FF;
+}
+
+.bg-green {
+  background-color: #02CF2F;
+}
+
+.bg-darkred {
+  background-color: #AF1616;
+}
+
+.bg-darkpurple {
+  background-color: #462F8A;
+}
+
+.fc-blue {
+  color: #007CEE;
+}
+
+
+.font-size-21 {
+  font-size: 21px;
+}
+
+.font-size-27 {
+  font-size: 27px;
+}
+
+.font-size-48 {
+  font-size: 48px;
+}
+
+.font-weight-400 {
+  font-weight: 400;
+}
+
+.font-weight-700 {
+  font-weight: 700;
+}
+
+.icon-size-42 {
+  height: 42px;
+  width: 42px;
+  object-fit: cover;
+}
+
+.icon-size-32 {
+  height: 32px;
+  width: 32px;
+  object-fit: fill;
+}
+
+.icon-size-49 {
+  height: 49px;
+  width: 49px;
+  object-fit: contain;
+}
+
+.icon-size-120 {
+  height: 120px;
+  width: 120px;
+  object-fit: contain;
+}
+
+.mt-100 {
+  margin-top: 100px;
+}
+
+
+/*textarea nicht verstellbar*/
+
+.resize-none {
+  resize: none;
+}
+
+/* ANCHOR Global button style settings */
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  transition: all 125ms ease-in-out;
+}
+
+.button:hover {
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  transform: translateY(-1px);
+  transition: all 125ms ease-in-out;
+}
+
+.button-darkblue {
+  background-color: var(--darkblue);
+  border: 1px solid var(--darkblue);
+  color: white;
+  transition: all 125ms ease-in-out;
+}
+
+.button-darkblue:hover {
+  background-color: var(--lightblue);
+  border: 1px solid var(--lightblue);
+  cursor: pointer;
+  transition: all 125ms ease-in-out;
+}
+
+.button-white {
+  background-color: white;
+  border: 1px solid white;
+  outline: 1px solid var(--darkblue);
+  color: var(--darkblue);
+  transition: all 125ms ease-in-out;
+}
+
+.button-white:hover {
+  border: 1px solid var(--lightblue);
+  outline: 1px solid var(--lightblue);
+  color: var(--lightblue);
+  cursor: pointer;
+  transition: all 125ms ease-in-out;
+}
+
+
+
+
+
+/* ######################## Desktop header [Frame 41] ######################### */
+.desktop-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 36px 0px 348px;
+  gap: 34px;
+  position: absolute;
+  height: 89px;
+  left: 0px;
+  top: 0px;
+  right: 0;
+  background: #FFFFFF;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
+}
+
+.desktop-header-right-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.portrait-blue-ring {
+  background-color: #2A3647;
+  border-radius: 50%;
+  padding: 4px;
+  outline: 3px solid white;
+  outline-offset: -6px;
+}
+
+/* ##################### Desktop navbar left [Frame 3] ######################### */
+
+.desktop-navbar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 70px 0;
+  gap: 100px;
+  position: absolute;
+  width: 232px;
+  height: 100vh;
+  left: 0px;
+  top: 0px;
+  background: var(--darkblue);
+  background-color: rgba(42, 54, 71, 1);
+  ;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
+  color: white;
+}
+
+
+.desktop-navbar>a>img {
+  height: 100px;
+  object-fit: contain;
+  margin-bottom: 50px;
+}
+
+.desktop-navbar-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: calc(100vw - 250px);
+  justify-content: space-between;
+  align-items: center;
+}
+
+.desktop-navbar-wrapper a {
+  text-decoration: none;
+  color: white;
+  padding: 13px 30px;
+  display: flex;
+  gap: 20px;
+  transition: all 125ms ease-in-out;
+}
+
+.desktop-navbar-top a:hover,
+.desktop-navbar-bottom a:hover {
+  background-color: #091931;
+  transition: all 125ms ease-in-out;
+}
+
+.navbar-item-active {
+  background-color: #091931;
+}
+
+.desktop-navbar-logo-position {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.desktop-navbar-top {
+  display: flex;
+  /* gap: 10px; */
+  flex-direction: column;
+  width: 100%;
+}
+
+.desktop-navbar-bottom {
+  display: flex;
+  /* gap: 25px; */
+  flex-direction: column;
+  width: 100%;
+}
+
+.desktop-navbar-link {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+
+
+
+.mobile-header {
+  display: none;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 25px;
+  position: fixed;
+  height: 80px;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: #FFFFFF;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
+}
+
+.mobile-navbar {
+  display: none;
+  flex-direction: row;
+  justify-content: space-evenly;
+  /* align-items: center; */
+  padding: 0 0px;
+  gap: 10px;
+
+  position: fixed;
+  height: 80px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #2A3647;
+}
+
+.mobile-navbar-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: white;
+  padding: 0 3px;
+}
+
+
+.d-none {
+  display: none;
+}
+
+@media screen and (max-width: 910px) {
+  main {
+    height: calc(100vh - 160px);
+    margin-top: 80px;
+    margin-left: 0;
+    overflow-y: scroll;
+    /* padding-bottom: 300px; */
+  }
+
+  .desktop-header {
+    display: none;
+  }
+
+  .desktop-navbar {
+    display: none;
+  }
+
+  .mobile-header {
+    display: flex;
+  }
+
+  .mobile-navbar {
+    display: flex;
+  }
+
+}
+
+
+
+
+/* 
+
+
+/* #################### Paul ################### */
+
+/* #################### Daniel ################### */
+
+/* #################### Patrick ################### */
+/* 
+.main-content-J {
+  position: relative;
+  width: 1440px;
+  height: 1024px;
+  background-color: black;
+}
+
+.header-task-J {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 39px;
+  gap: 34px;
+  background-color: green;
+  position: absolute;
+  width: 1440px;
+  height: 97.3px;
+  left: 0px;
+  top: 0px;
+}
+
+.nav-task-J {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 66px 20px;
+  gap: 235px;
+  background-color: red;
+  position: absolute;
+  width: 232px;
+  height: 932px;
+  left: 0px;
+  top: 92px;
+}
+
+.task-mask-J {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 25px;
+  background-color: orange;
+  position: absolute;
+  width: 561px;
+  height: 1056px;
+  left: 320px;
+  top: 137px;
+}
+
+.task-button-J {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 0px;
+  gap: 25px;
+  background-color: grey;
+  width: 341px;
+  height: 61px;
+
+} */

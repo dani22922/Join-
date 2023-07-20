@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="./css/add_task.css">
+  <link rel="shortcut icon" href="assets/img/favicon.ico" type="image/x-icon">
+  <title>Join | Add task</title>
+</head>
+
+<body id="home" onload="initTasks()">
+
+  <header id="desktopHeader" class="desktop-header"></header>
+  <nav id="desktopNavbar" class="desktop-navbar"></nav>
+
+  <header id="mobileHeader" class="mobile-header"></header>
+  <nav id="mobileNavbar" class="mobile-navbar"></nav>
+
+  <!-- ANCHOR - Left - taskfield -->
+
+  <main>
+    <div class="add-task-wrapper">
+      <form onsubmit="return false">
+        <div class="summary-mobile-headline">Kanban Project Management Tool</div>
+        <h3>Add Task</h3>
+
+        <div class="add-task-form-separator-left">
+
+          <div class="add-task-form-item">
+            <label for="taskTitle">Title</label>
+            <input required type="text" class="input-title-J width" placeholder="Enter a title" name="Title"
+              id="taskTitle">
+          </div>
+          <div class="add-task-form-item">
+            <label for="taskDescription">Description</label>
+            <textarea required placeholder="Enter a Description" name="Description" class="resize-none"
+              id="taskDescription" rows="10">
+            </textarea>
+          </div>
+
+          <div class="add-task-form-item">
+            <span>Priority</span>
+            <div class="prio-button-wrapper">
+              <button onclick="setPriorityUrgent()" id="taskButtonUrgent" class="prio-button-urgent">Urgent
+                <img src="assets/img/prio-urgent.svg">
+              </button>
+              <button onclick="setPriorityMedium()" id="taskButtonMedium" class="prio-button-medium">Medium
+                <img src="assets/img/prio-medium.svg">
+              </button>
+              <button onclick="setPriorityLow()" id="taskButtonLow" class="prio-button-low">Low
+                <img src="assets/img/prio-low.svg"></button>
+            </div>
+          </div>
+
+        </div>
+
+
+
+        <div class="add-task-form-separator-right">
+
+          <div class="add-task-form-item">
+            <label for="taskDate">Deadline</label>
+            <input required class=" right-taskfield-input" type="date" placeholder="dd/mm/yyyy" name="" id="taskDate">
+          </div>
+
+          <div class="add-task-form-item z-5">
+            <label>Epic</label>
+            <div class="dropdown-menu z-5">
+              <div class="dropdown-header z-5" onclick="toggleMenuEpic()">
+                <input id="menuEpicHeader" value="Select epic" readonly>
+                <img src="../assets/img/icon-arrow-down.svg" alt="">
+              </div>
+              <div id="menuEpic" class="dropdown-body z-5 d-none" onmouseleave="toggleMenuEpic()">
+              </div>
+            </div>
+          </div>
+
+          <div class="add-task-form-item">
+            <label for="assignedTo">Assigned to</label>
+            <div class="dropdown-menu z-4">
+              <div class="dropdown-header z-4" onclick="toggleMenuAssignedTo()">
+                <input id="menuAssignedToHeader" value="Select contact" readonly>
+                <img src="../assets/img/icon-arrow-down.svg" alt="">
+              </div>
+              <div id="menuAssignedTo" class="dropdown-body z-4 d-none" onmouseleave="toggleMenuAssignedTo()">
+              </div>
+            </div>
+          </div>
+
+          <div class="add-task-form-item">
+            <label for="chooseCategory">Category</label>
+            <div class="dropdown-menu">
+              <div class="dropdown-header" onclick="toggleMenuCategory()">
+                <input id="menuCategoryHeader" value="Select category" readonly>
+                <img src="../assets/img/icon-arrow-down.svg" alt="">
+              </div>
+              <div id="menuCategory" class="dropdown-body z-3 d-none" onmouseleave="toggleMenuCategory()">
+              </div>
+            </div>
+          </div>
+
+          <!-- <div class="add-task-form-item">
+            <label for="taskAssigned">Board list</label>
+            <select class="width" name="selectBoardlist" placeholder="Select Board List" id="taskBoardList" required>
+            </select>
+          </div> -->
+
+          <div class="add-task-form-item-buttons">
+            <button onclick="clearFormValues();      resetPriorityButtons();" class="button button-white">Clear Form
+            </button>
+
+            <button id="btnCreateTask" onclick="addTaskToUser();" class="button button-darkblue">Create Task
+            </button>
+
+
+          </div>
+          <img id="taskCreate" class="task-create-img" src="assets/img/message-task-added.svg">
+        </div>
+      </form>
+    </div>
+
+
+
+  </main>
+
+  <script src="js/storage.js"></script>
+  <script src="js/script.js"></script>
+  <script src="js/add_task.js"></script>
+</body>
+
+</html>

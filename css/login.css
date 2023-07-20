@@ -1,0 +1,219 @@
+/* TODO Responsiv machen */
+
+body {
+    background-color: #f5f5f5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.login-logo {
+    width: 70px;
+    object-fit: contain;
+    position: absolute;
+    top: 50px;
+    left: 50px;
+}
+
+.login-logo-animate {
+    width: 70px;
+    object-fit: contain;
+    position: absolute;
+    top: calc(50vh - 211px);
+    left: calc(50vw - 235px);
+    transform: scale(0.55);
+    animation-name: slide-join-logo;
+    animation-duration: 500ms;
+    animation-timing-function: ease-in-out;
+    animation-delay: 250ms;
+    animation-iteration-count: 1;
+    animation-direction: normal;
+    animation-fill-mode: both;
+    z-index: 2;
+}
+
+/* NOTE Shorthand */
+/* animation: slide-join-logo 500ms ease-in-out 100ms 1 normal forwards; */
+/* LINK https://www.w3schools.com/css/css3_animations.asp */
+
+@keyframes slide-join-logo {
+    from {
+        top: calc(50vh - 211px);
+        left: calc(50vw - 235px);
+        transform: scale(0.55);
+    }
+
+    to {
+        top: 50px;
+        left: 50px;
+        transform: scale(1);
+    }
+
+}
+
+
+
+.login-form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0px 0px 14px 3px rgba(0, 0, 0, 0.04);
+    min-width: 500px;
+    margin: 10px;
+    z-index: 1;
+    animation: opacity 250ms ease-in 0ms 1 normal both;
+}
+
+@keyframes opacity {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+
+}
+
+
+.login-header-wrapper {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+.login-header-wrapper img {
+    height: 2rem;
+    width: 2rem;
+}
+
+.login-header-wrapper h2 {
+    width: 100%;
+    margin-block-start: 0;
+    text-align: center;
+}
+
+.login-form-container p {
+    width: 100%;
+    text-align: center;
+    margin: 0 0 40px 0;
+}
+
+.login-form-container h2 {
+    font-size: 60px;
+    font-weight: 700;
+    margin-block-end: 0;
+}
+
+.login-form-container .blue-line {
+    height: 3px;
+    width: 100px;
+    border-radius: 10px;
+    background-color: #29abe2;
+    margin: 10px 0 30px 0;
+}
+
+.login-form-container form {
+    width: 100%;
+}
+
+.login-form-input-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    gap: 30px;
+    width: 100%;
+}
+
+.login-form-input-wrapper input {
+    border-radius: 10px;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #D1D1D1;
+    box-shadow: 0px 0px 14px 3px rgba(0, 0, 0, 0.04);
+}
+
+.login-form-input-email {
+    background: url(../assets/img/icon-mail-user.svg) no-repeat;
+    background-position: top 8px right 10px;
+}
+
+.login-form-input-password {
+    background: url(../assets/img/icon-lock-user.svg) no-repeat;
+    background-position: top 8px right 10px;
+}
+
+.login-form-input-name {
+    background: url(../assets/img/icon-name-singup.svg) no-repeat;
+    background-position: top 8px right 10px;
+}
+
+.login-form-settings {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 20px;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+.login-form-settings-left {
+    display: flex;
+    gap: 5px;
+}
+
+.login-form-settings a {
+    text-decoration: none;
+    color: #29ABE2;
+}
+
+.login-form-submit-buttons {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.login-form-submit-buttons button {
+    min-width: 140px;
+}
+
+.login-signup-button-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.login-signup-button-wrapper a {
+    text-decoration: none;
+}
+
+
+
+.login-signup {
+    position: absolute;
+    top: 50px;
+    right: 50px;
+    display: flex;
+}
+
+@media screen and (max-width: 580px) {
+
+    .login-form-container {
+        min-width: 300px;
+    }
+
+    .login-form-submit-buttons button {
+        min-width: 120px;
+    }
+
+    #notAJoinUser {
+        display: none;
+    }
+}

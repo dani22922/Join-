@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="./css/add_task.css">
+  <link rel="stylesheet" href="./css/board.css">
+  <link rel="shortcut icon" href="./assets/img/favicon.ico" type="image/x-icon">
+  <title>JOIN | Kanban board</title>
+</head>
+
+<body id="home" onload="initBoard();">
+
+  <header id="desktopHeader" class="desktop-header"></header>
+  <nav id="desktopNavbar" class="desktop-navbar"></nav>
+
+  <header id="mobileHeader" class="mobile-header"></header>
+  <nav id="mobileNavbar" class="mobile-navbar"></nav>
+
+
+  <main class="board">
+
+    <div class="board-header">
+      <h3>Board</h3>
+
+      <div class="search-task">
+        <input class="searchfield" id="searchText" onkeyup="filterTasks();" type="text" placeholder="Find Task">
+      </div>
+
+      <button class="button button-darkblue" id="addTaskMobile" onclick="window.location.href='add_task.html';">
+        <span> Add Task </span>
+        <img src="assets/img/Icon-plus.svg" alt="">
+      </button>
+
+    </div>
+
+    <!-- NOTE Beginn Board -->
+
+    <div class="board-body" id="boardBody">
+
+
+      <!-- NOTE Boardlist 0 -->
+
+      <div class="boardlist" id="boardList-0">
+
+        <div class="boardlist-header">
+          <h4>To-Do</h4>
+          <button class="button button-darkblue" onclick="window.location.href='add_task.html';">
+            <img src="assets/img/Icon-plus.svg" alt="">
+          </button>
+        </div>
+
+        <!-- NOTE BoardListBody 0 -->
+
+        <div id="boardListBody-0" class="boardlist-body dragbox" ondrop="drop_handler('To-Do')"
+          ondragover="dragover_handler(event)">
+
+        </div>
+      </div>
+
+
+      <!-- NOTE Boardlist 1 -->
+
+      <div class="boardlist " id="boardList-1">
+
+        <div class="boardlist-header">
+          <h4>In Progress</h4>
+          <button class="button button-darkblue" onclick="window.location.href='add_task.html';">
+            <img src="assets/img/Icon-plus.svg" alt="">
+          </button>
+        </div>
+
+        <div id="boardListBody-1" class="boardlist-body dragbox" ondrop="drop_handler('In Progress')"
+          ondragover="dragover_handler(event)">
+
+        </div>
+      </div>
+
+      <!-- NOTE Boardlist 2 -->
+      <div class="boardlist" id="boardList-2">
+
+        <div class="boardlist-header">
+          <h4>Reviews</h4>
+          <button class="button button-darkblue" onclick="window.location.href='add_task.html';">
+            <img src="assets/img/Icon-plus.svg" alt="">
+          </button>
+        </div>
+
+        <div id="boardListBody-2" class="boardlist-body dragbox" ondrop="drop_handler('Reviews')"
+          ondragover="dragover_handler(event)">
+
+        </div>
+      </div>
+
+      <!-- NOTE Boardlist 3 -->
+      <div class="boardlist" id="boardList-3">
+
+        <div class="boardlist-header">
+          <h4>Done</h4>
+          <button class="button button-darkblue" onclick="window.location.href='add_task.html';">
+            <img src="assets/img/Icon-plus.svg" alt="">
+          </button>
+
+        </div>
+
+        <div id="boardListBody-3" class="boardlist-body dragbox" ondrop="drop_handler('Done')"
+          ondragover="dragover_handler(event)">
+          <div>Move Task to Done if it's Done</div>
+
+        </div>
+      </div>
+
+    </div>
+
+
+
+    <!-- #################### NOTE EDIT TASK OVERLAY #################### onclick="closeOverlay('editTaskOverlay', 'editTaskContainer')"-->
+
+    <div id="editTaskOverlay" class="desktop-overlay d-none" alt="Close button">
+      <div id="editTaskContainer" class="desktop-overlay-container">
+
+        <div class="contact-overlay-left-S">
+          <img src="assets/img/logo-white.svg" alt="Join us">
+          <h2>Edit task</h2>
+          <!-- <p>Tasks are better with a team!</p> -->
+          <div class="blue-line"></div>
+        </div>
+
+        <div class="contact-overlay-right-S edit-task">
+          <div class="contact-overlay-right-header">
+            <img src="assets/img/icons-cancel.svg" onclick="closeOverlay('editTaskOverlay', 'editTaskContainer')"
+              alt="Close button">
+          </div>
+
+          <!-- TODO FORM -->
+
+          <div id="editTaskWrapper" class="contact-overlay-right-main">
+            <div class="edit-task-form-separator-left">
+
+              <div class="add-task-form-item">
+                <label for="editTaskTitle">Title</label>
+                <input required type="text" class="edit-task-title" placeholder="Enter a title" name="Title"
+                  id="editTaskTitle">
+              </div>
+              <div class="add-task-form-item">
+                <label for="editTaskDescription">Description</label>
+                <textarea required placeholder="Enter a Description" name="Description" class="resize-none"
+                  id="editTaskDescription" rows="10">
+                </textarea>
+              </div>
+
+              <div class="add-task-form-item">
+                <span>Priority</span>
+                <div id="prioButtonWrapper" class="prio-button-wrapper">
+
+                </div>
+              </div>
+
+            </div>
+
+
+
+            <div class="edit-task-form-separator-right">
+
+              <div class="add-task-form-item">
+                <label for="taskDate">Deadline</label>
+                <input required class=" right-taskfield-input" type="date" placeholder="dd/mm/yyyy" name=""
+                  id="editTaskDate">
+              </div>
+
+              <div class="add-task-form-item z-5">
+                <label>Epic</label>
+                <div class="dropdown-menu z-5">
+                  <div class="dropdown-header z-5" onclick="toggleMenuEpic()">
+                    <input id="menuEpicHeader" class="input-dropdown" value="Select epic" readonly>
+                    <img src="../assets/img/icon-arrow-down.svg" alt="">
+                  </div>
+                  <div id="menuEpic" class="dropdown-body z-5 d-none" onmouseleave="toggleMenuEpic()">
+                  </div>
+                </div>
+              </div>
+
+              <div class="add-task-form-item">
+                <label for="assignedTo">Assigned to</label>
+                <div class="dropdown-menu z-4">
+                  <div class="dropdown-header z-4" onclick="toggleMenuAssignedTo()">
+                    <input id="menuAssignedToHeader" class="input-dropdown" value="Select contact" readonly>
+                    <img src="../assets/img/icon-arrow-down.svg" alt="">
+                  </div>
+                  <div id="menuAssignedTo" class="dropdown-body z-4 d-none" onmouseleave="toggleMenuAssignedTo()">
+                  </div>
+                </div>
+              </div>
+
+              <div class="add-task-form-item">
+                <label for="chooseCategory">Category</label>
+                <div class="dropdown-menu">
+                  <div class="dropdown-header" onclick="toggleMenuCategory()">
+                    <input id="menuCategoryHeader" class="input-dropdown" value="Select category" readonly>
+                    <img src="../assets/img/icon-arrow-down.svg" alt="">
+                  </div>
+                  <div id="menuCategory" class="dropdown-body z-3 d-none" onmouseleave="toggleMenuCategory()">
+                  </div>
+                </div>
+              </div>
+
+              <div id="editTaskButtons" class="edit-task-form-item-buttons">
+
+              </div>
+
+
+
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- <div class="pop-up-task-D d-none" id="popUpTaskD">
+
+      <div class="work-category-D" id="taskCategoryOverlayD">
+        Sales
+      </div>
+      <div class="close-work-overlay-D">
+        <button onclick="closeWorkTaskOverlay()">x</button>
+      </div>
+
+      <div class="work-overlay-headline-D"> Call potential clients</div>
+      <span>Make the product presentation to prospective buyers</span>
+
+      <div class="work-overlay-date-D">
+        <b>Due date:</b> <span class="overlay-date-D" id="overlayDateD">05-08-2023</span>
+      </div>
+      <div class="priority-overlay-D">
+        <b>Priority:</b> <img src="assets/img/priority-urgent.svg" alt="">
+      </div>
+      <div class="assigned-overlay-D">
+        <b>Assigned To:</b>
+        <div class="user-overlay-D">
+          <span>User 1</span>
+          <span>User 2</span>
+          <span>User 3</span>
+          <span>User 4</span>
+        </div>
+      </div>
+    </div> -->
+
+      <!-- #################### NOTE ADD TASK OVERLAY #################### -->
+
+      <div class="slide-in-add-task-wrapper d-none" id="slideInAddTaskWrapper">
+
+      </div>
+      <div class="change-task-wrapper d-none" id="changeTaskWrapper">
+
+      </div>
+  </main>
+  <script src="js/storage.js"></script>
+  <script src="js/script.js"></script>
+  <script src="js/board.js"></script>
+  <script src="js/add_task.js"></script>
+
+</body>
+
+</html>

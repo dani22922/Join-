@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="./css/contacts.css">
+  <link rel="shortcut icon" href="assets/img/favicon.ico" type="image/x-icon">
+  <title>JOIN | Contacts</title>
+</head>
+
+
+<body onload="initContacts();">
+  <div id="contactContainer">
+
+    <header id="desktopHeader" class="desktop-header"></header>
+    <nav id="desktopNavbar" class="desktop-navbar"></nav>
+
+    <header id="mobileHeader" class="mobile-header"></header>
+    <nav id="mobileNavbar" class="mobile-navbar"></nav>
+
+    <main class="contacts-main-S">
+
+      <!-- NOTE Register and contacts will be rendered by renderContactList() -->
+      <div id="contactsList" class="contacts-list-S d-none">
+
+      </div>
+
+
+      <!-- ################# Contact ############## -->
+      <div class="contacts-content-S">
+        <div>
+
+          <div class="contacts-header-wrapper-S">
+            <h3>Contacts</h3>
+            <div class="blue-line"></div>
+            <span>Better with a team</span>
+          </div>
+
+          <!-- NOTE Active contact will be rendered by templateContactsActiveContact(activeContact) -->
+          <div id="contactsMainWrapperS" class="contacts-main-wrapper-S"></div>
+
+        </div>
+        <!-- NOTE Die Button in der Kontakt-Detailansicht werden hier gerendert -->
+        <div id="contactFooterWrapper" class="contacts-footer-wrapper-S">
+          <button class="button button-darkblue"
+            onclick="showOverlay('addContactOverlay', 'addContactContainer'); templateAddContactForm()">
+            New contact
+            <img src="assets/img/icons-add-contact.svg" alt="Logo-add-contact">
+          </button>
+        </div>
+      </div>
+
+    </main>
+
+  </div>
+
+  <!-- #################### NOTE EDIT contact overlay #################### -->
+
+  <div id="editContactOverlay" class="desktop-overlay d-none">
+    <div id="editContactContainer" class="desktop-overlay-container">
+
+      <div class="contact-overlay-left-S">
+        <img src="assets/img/logo-white.svg" alt="Join us">
+        <h2>Edit contact</h2>
+        <!-- <p>Tasks are better with a team!</p> -->
+        <div class="blue-line"></div>
+      </div>
+
+      <div class="contact-overlay-right-S">
+        <div class="contact-overlay-right-header">
+          <img src="assets/img/icons-cancel.svg" onclick="closeOverlay('editContactOverlay', 'editContactContainer')"
+            alt="Close button">
+        </div>
+
+        <div id="contactFormActiveContact" class="contact-overlay-right-main">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- #################### NOTE ADD contact overlay #################### -->
+  <div id="addContactOverlay" class="desktop-overlay d-none">
+    <div id="addContactContainer" class="desktop-overlay-container">
+
+      <div class="contact-overlay-left-S">
+        <img src="assets/img/logo-white.svg" alt="Join us">
+        <h2>Add contact</h2>
+        <p>Tasks are better with a team!</p>
+        <div class="blue-line"></div>
+      </div>
+
+      <div class="contact-overlay-right-S">
+        <div class="contact-overlay-right-header">
+          <img src="assets/img/icons-cancel.svg" onclick="closeOverlay('addContactOverlay', 'addContactContainer')"
+            alt="Close button">
+        </div>
+        <div id="contactFormNewContact" class="contact-overlay-right-main">
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="js/storage.js"></script>
+  <script src="js/script.js"></script>
+  <script src="js/contacts.js"></script>
+
+</body>
+
+
+</html>

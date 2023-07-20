@@ -1,0 +1,220 @@
+.summary-wrapper {
+    display: flex;
+    flex-direction: column;
+    padding: 30px 10px;
+    width: 100%;
+}
+
+.summary-mobile-headline {
+    display: block;
+}
+
+.summary-heading-wrapper {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-wrap: nowrap;
+    flex-direction: column;
+}
+
+
+.summary-heading-wrapper h3 {
+    margin-block-start: 0;
+    margin-block-end: 0;
+    font-size: 2.5rem;
+    order: 1;
+}
+
+.summary-heading-wrapper .blue-line {
+    height: 3px;
+    width: 100px;
+    background-color: #29abe2;
+    margin: 20px 0px;
+    order: 3;
+}
+
+.summary-heading-wrapper h4 {
+    font-size: 21px;
+    font-weight: 400;
+    color: var(--darkblue);
+    margin-block-start: 0;
+    margin-block-end: 0;
+    order: 2;
+}
+
+.summary-main-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+
+.summary-dahsboard-wrapper {
+    max-width: 420px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    /* background-color: rebeccapurple; */
+}
+
+.summary-dahsboard-wrapper img {
+    height: 40px;
+    object-fit: contain;
+}
+
+.summary-dahsboard-row {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    gap: 20px;
+}
+
+
+
+/* LINK https://developer.mozilla.org/en-US/docs/Web/CSS/flex */
+.summary-dahsboard-top-item {
+    min-height: 110px;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+    background-color: white;
+    padding: 15px 10px 10px 10px;
+    border-radius: 20px;
+    border: none;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    transition: all 125ms ease-in-out;
+}
+
+.summary-dahsboard-middle-item {
+    min-height: 110px;
+    display: flex;
+    flex: 1;
+    background-color: white;
+    padding: 15px 10px 10px 10px;
+    border-radius: 20px;
+    border: none;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    justify-content: space-around;
+    align-items: center;
+    transition: all 125ms ease-in-out;
+}
+
+.summary-dahsboard-bottom-item {
+    min-height: 110px;
+    display: flex;
+    justify-content: center;
+    flex: 1;
+    background-color: white;
+    padding: 15px 10px 10px 10px;
+    border-radius: 20px;
+    border: none;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    transition: all 125ms ease-in-out;
+}
+
+.summary-dahsboard-top-item:hover,
+.summary-dahsboard-middle-item:hover,
+.summary-dahsboard-bottom-item:hover {
+    cursor: pointer;
+    transform: translateY(-2px);
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.1);
+    background-color: #091931;
+    color: white;
+    transition: all 125ms ease-in-out;
+}
+
+
+.summary-dahsboard-row .fbox-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+
+.summary-dahsboard-row .fbox-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.summary-dahsboard-row .number {
+    font-size: 2.3rem;
+    font-weight: 600;
+}
+
+.summary-dahsboard-row .gray-line {
+    width: 2px;
+    height: 68px;
+    background-color: rgba(209, 209, 209, 1);
+    margin: 0 10px;
+}
+
+.deadline-date {
+    text-align: left;
+    width: 100%;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.summary-user-welcome {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 25px;
+}
+
+.summary-user-welcome h3 {
+    font-size: 2.3rem;
+}
+
+.d-none {
+    display: none;
+}
+
+
+
+@media screen and (min-width: 530px) {
+    .summary-heading-wrapper {
+        flex-direction: row;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .summary-heading-wrapper .blue-line {
+        height: 48px;
+        width: 3px;
+        order: 2;
+    }
+
+    .summary-heading-wrapper h4 {
+        order: 3;
+    }
+
+    .summary-wrapper {
+        padding: 30px 30px;
+    }
+
+}
+
+@media screen and (min-width: 910px) {
+    .summary-user-welcome {
+        display: flex;
+    }
+
+    .summary-mobile-headline {
+        display: none;
+    }
+
+    .summary-wrapper {
+        padding: 50px 50px;
+    }
+
+    .summary-main-wrapper {
+        justify-content: flex-start;
+    }
+
+}
