@@ -20,18 +20,20 @@ function generateBoardListBody() {
     for (let i = 0; i < userData[currentUser].board.length; i++) {
 
       const boardListBody = document.getElementById(`boardListBody-${i}`);
-      boardListBody.innerHTML = '';
-      for (let j = 0; j < userData[currentUser].tasks.length; j++) {
+      if (boardListBody) {
+        boardListBody.innerHTML = '';
+        for (let j = 0; j < userData[currentUser].tasks.length; j++) {
 
-        if (userData[currentUser].tasks[j].boardList == categoryOptions[i]) {
-          boardListBody.innerHTML += generateBoardCard(i, j);
-          setCardPriority(j);
-          setAssignedContacts(j);
+          if (userData[currentUser].tasks[j].boardList == categoryOptions[i]) {
+            boardListBody.innerHTML += generateBoardCard(i, j);
+            setCardPriority(j);
+            setAssignedContacts(j);
+          }
         }
-      }
-      boardListBody.innerHTML += /*html*/ `
+        boardListBody.innerHTML += /*html*/ `
       <div class="drop-here">Drop here</div>
       `;
+      }
     }
   }
 }
@@ -354,25 +356,23 @@ function showDropZones() {
 // TODO Search function
 
 function filterTasks() {
-  let searchText = document.getElementById('searchText').value;
-  if (searchText.trim() === '') {
-    initBoard();
+  let searchText = document.getElementById('searchText').value.trim().toLowerCase();
+
+  if (searchText === '') {
+    initBoardData();
+    return;
   }
 
-  searchText = searchText.toLowerCase();
-  console.log(searchText);
-
-
   let boardBody = document.getElementById('boardBody');
-  boardBody.innerHTML = 'Suchergebnis';
+  boardBody.innerHTML = '';
 
-
-  // for (let j = 0; j < userData[currentUser].tasks.length; j++) {
-  //   let task = userData[currentUser].tasks[j];
-  //   if (task.title.toLowerCase().includes(searchText) || task.description.toLowerCase().includes(searchText)) {
-  //     console.log('Aufgabe Index: ', j);
-  //     boardBody.innerHTML += generateBoardCard(0, j);
-  //   }
-  // }
+  for (let j = 0; j < userData[currentUser].tasks.length; j++) {
+    let task = userData[currentUser].tasks[j];
+    if (task.title.toLowerCase().includes(searchText) || task.description.toLowerCase().includes(searchText)) {
+      boardBody.innerHTML += generateBoardCard(0, j);
+      setCardPriority(j);
+      setAssignedContacts(j);
+    }
+  }
 }
 
