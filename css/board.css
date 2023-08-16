@@ -473,9 +473,6 @@ main.board {
     padding: 0 !important;
 }
 
-
-
-
 .d-none {
     display: none
 }
@@ -485,6 +482,27 @@ main.board {
     .boardlist {
         flex-direction: column;
         max-width: unset;
+    }
+
+    .board-body {
+        display: flex;
+        flex-direction: column;
+        padding-bottom: 64px;
+
+    }
+
+    .boardlist-card {
+        width: 70%;
+    }
+
+    .dragbox {
+        background-color: transparent;
+        border-radius: 10px;
+        box-shadow: none;
+    }
+
+    .drop-here {
+        display: none;
     }
 
 
